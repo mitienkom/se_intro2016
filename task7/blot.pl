@@ -1,7 +1,7 @@
-а(X) :- not(X=витя), X=боря.
-б(X) :- X=витя, not(X=алеша).
-в(X) :- not(X=боря), ((X=витя);not(X=витя)).
-запачкал(X) :- (а(X), б(X), not(в(X))).
-запачкал(X) :- (а(X), not(б(X)), в(X)).
-запачкал(X) :- (not(а(X)), б(X), в(X)).
+a(X) :- not(X=victor), X=borya.
+b(X) :- X=victor, not(X=alex).
+v(X) :- not(X=borya), ((X=victor);not(X=victor)).
+запачкал(X) :- (a(X), b(X), not(v(X))).
+запачкал(X) :- (a(X), not(b(X)), v(X)).
+запачкал(X) :- (not(a(X)), b(X), v(X)).
                
