@@ -3,12 +3,14 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {
         int field [][] = new int [3][3];
-		int player = 1, it = 0;
-		while (isEnd(field, (player - 1) % 2 == 1 ? 2 : 1) != true && it < 9){
-	    	makeMove(field, player);
+		int player = 2, it = 0;
+		do{
 	    	player = ((player + 1) % 2 == 1 ? 1 : 2);
+	    	makeMove(field, player);
+	    	PrintField(field, player);
 	    	it++;
 		}
+		while(isEnd(field, player) != true && it < 9);
 		System.out.println("Draw");
    	}
     private static void makeMove(int[][] field, int player) {
@@ -37,10 +39,18 @@ public class Main {
           	f = true;
         }
         if (f == true){
-        	System.out.print("win ");
-        	System.out.println(player);
+        	System.out.println("win " + player);
         	System.exit(0);
         }
-        return f;
+        return false;
+   }
+   private static void PrintField(int[][] field, int player){
+   	System.out.println("Player" + player + ":");
+	    	for (int i = 0; i < 3; ++i){
+        		for (int j = 0; j < 3; ++j){
+        			System.out.print(field[i][j] + " ");
+        		}
+        		System.out.println();
+        	}
    }
 }
